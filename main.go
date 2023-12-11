@@ -46,10 +46,12 @@ func main() {
 	}
 }
 
+// Prints out the version
 func version() {
 	fmt.Println("Version " + VERSION)
 }
 
+// Checks if the current directory is a git repository
 func isGitRepo() bool {
 	if _, err := os.Stat(".git"); os.IsNotExist(err) {
 		return false
@@ -57,6 +59,7 @@ func isGitRepo() bool {
 	return true
 }
 
+// Prints out the help message
 func help() {
 	fmt.Println("Help")
 	fmt.Println("Here are the allowed ones: ")
@@ -66,6 +69,7 @@ func help() {
 	fmt.Println()
 }
 
+// Opens the git url in the browser
 func gitUrlOpen() {
 	//get the url from the git config
 	output, err := exec.Command("git", "config", "--get", "remote.origin.url").Output()
